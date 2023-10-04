@@ -1,11 +1,6 @@
-import { Center, Box} from '@chakra-ui/react'
-import { Providers } from "../providers";
 import createApolloClient from "../../../apollo-client";
 import { ApolloQueryResult, gql } from "@apollo/client";
-import Link from 'next/link';
-import FilmCard from "@/components/FilmCard";
-import AccordionTest from '@/components/AccordionTest';
-
+import WithChakraComponent from '@/components/WithChakra';
 
 
 
@@ -25,27 +20,8 @@ export default async function WithChakra() {
   const data: FilmsIP = await getData();
   const films = data?.allFilms?.films || []; 
   
-  return (
-    <>
-        <Providers>
-            <>
-            <Center>
-                <Box my={24}>
-                    <Link href="/with-chakra">With Chakra</Link>
-                </Box>
-            </Center>
-            <Center>
-                <Box my={24} maxW='sm' borderWidth='1px' borderRadius='lg'>
-                        <AccordionTest />
-                </Box>
-            </Center>
-            {
-                films.map((film, idx) => <FilmCard key={idx} film={film} />)
-            }
-            </>
-        </Providers>
-    </>
-    )
+  return <WithChakraComponent films={films} />
+
 }
 
 
