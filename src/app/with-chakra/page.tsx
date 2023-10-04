@@ -31,7 +31,7 @@ export default async function WithChakra() {
             <>
             <Center>
                 <Box my={24}>
-                    <Link href="/with-chakra">With Chakra</Link>
+                    <h1>With Chakra</h1>
                 </Box>
             </Center>
             <Center>
